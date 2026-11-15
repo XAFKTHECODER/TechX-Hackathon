@@ -4,7 +4,7 @@ import time
 import pytest
 from sqlmodel import select
 
-from app import audit
+from app import audit, llm
 from app.agents import payment as payment_agent
 from app.agents.base import ToolRefused
 from app.agents.payment import PaymentAgent
@@ -145,7 +145,7 @@ def test_qa_moderation_flow(client, owner, db):
 
 def test_home_page_renders_product(client):
     r = client.get("/")
-    assert r.status_code == 200 and "AI Foundations Bootcamp" in r.text
+    assert r.status_code == 200 and llm.load_product().name in r.text
 
 
 def test_escalation_approvals_have_no_payment(client, owner, db):

@@ -142,7 +142,7 @@ class ChatRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
     session_id: Annotated[str, Field(pattern=SESSION_ID_PATTERN), AfterValidator(_no_card_number)]
     message: str
-    product_id: str | None = Field(default="prod_ai_bootcamp", max_length=64)
+    product_id: str | None = Field(default=None, max_length=64)
 
 
 class PayRequest(BaseModel):
@@ -150,7 +150,7 @@ class PayRequest(BaseModel):
     session_id: Annotated[str, Field(pattern=SESSION_ID_PATTERN), AfterValidator(_no_card_number)]
     plan_id: str
     test_token: str = Field(pattern=TEST_TOKEN_PATTERN)  # sandbox tokens only, never a card number
-    product_id: str | None = Field(default="prod_ai_bootcamp", max_length=64)
+    product_id: str | None = Field(default=None, max_length=64)
 
 
 class RatingRequest(BaseModel):

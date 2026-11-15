@@ -60,3 +60,8 @@
   only from `/contact` pages and labeled as the company main line. Results without recent signal evidence
   are omitted. No messages are sent. Search and enrichment keys are supplied through `.env`, and the
   dashboard warns that providers may consume credits before a run.
+- **Public chat/pay default to the active product.** `ChatRequest.product_id` and `PayRequest.product_id`
+  default to `None`, which the endpoints resolve through `load_product()` (the published row when present,
+  else `data/product.json`). They used to default to the literal `prod_ai_bootcamp`, so omitting the field
+  returned 404 as soon as the active product changed (the catalog is now driven by `data/products.json`
+  while `data/product.json` holds the flagship). Clients may still pass an explicit id; unknown ids 404.
