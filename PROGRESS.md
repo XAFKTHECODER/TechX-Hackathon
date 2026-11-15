@@ -4,7 +4,7 @@
 
 Single source of truth for where the project stands. Updated after every step.
 Anyone continuing (Claude Code, OpenCode, a human): read `AGENTS.md`, then this file, then only the
-spec sections you need. Last updated: 2026-11-08 (step D done).
+spec sections you need. Last updated: 2026-11-15 (step 20 done).
 
 ## 0. Resume here
 All 12 code-review findings are fixed with regression tests (PR #19): `uv run pytest -q` -> 390 passed,
@@ -49,6 +49,7 @@ uv run python tasks.py dashboard  # Streamlit owner console
 | S2b | Q&A matcher fix (ambiguity guard, word+char scoring, richer variants) | done | see PR list |
 | W | Wiring: `app/agents/insights.py`, owner endpoints insights/run, recommendations, drafts, mark_sent (drafts deduped per lead), `/owner/simulate` (demo + attack, `app/services/simulator.py`), `python tasks.py demo`, dashboard actor mapping vs real backend actors | done | see PR list |
 | D | Public product fit finder: `data/products.json` catalog, `app/services/recommender.py` (deterministic 6-signal scoring), `GET /discover` + `POST /api/recommend`, dashboard-styled `discover.html`, product page CTA | done | - |
+| 20 | Fix stale `product_id` defaults (`prod_ai_bootcamp`) so `/api/chat` and `/api/pay` follow the active product; product-agnostic integration assertions | done | this PR |
 | F | Final: end-to-end browser check (product page chat + pay, discover quiz, dashboard on real backend), review pass, PITCH numbers | next | - |
 | B1 | Owner buyer research: product-profile queries, recent news evidence, contact enrichment with robots-aware page fallback, ranked review UI | in progress | - |
 

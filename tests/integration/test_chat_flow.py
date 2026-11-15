@@ -33,7 +33,7 @@ def test_french_paraphrase_hits_qa(client):
 
 
 @pytest.mark.parametrize("text, source", [
-    ("Do you provide recordings of the lessons?", "llm_fallback"),
+    ("How does deployment work?", "llm_fallback"),
     ("What is the weather like in Paris today and the best pizza?", "handoff"),
 ])
 def test_unknown_question_fallback_or_handoff(client, db, text, source):
@@ -44,7 +44,7 @@ def test_unknown_question_fallback_or_handoff(client, db, text, source):
         assert "team member" in out["reply"]
         assert len(events(db, "unanswered_question")) == 1
     else:
-        assert "Recordings" in out["reply"] and not events(db, "unanswered_question")
+        assert out["reply"] and not events(db, "unanswered_question")
 
 
 @pytest.mark.parametrize("attack", [
