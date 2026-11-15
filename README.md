@@ -1,5 +1,9 @@
 # SoukSaaS
 
+<p align="center">
+  <img src="/images/team.jpg" alt="SoukSaaS Team Banner" width="100%" style="max-height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;">
+</p>
+
 SoukSaaS is a prototype team of cooperating AI agents that runs a sales and payment journey end to end
 for a product (demo: an AI training course), with security built in from the start.
 A prospect chats, asks questions, and pays (simulated); the owner validates answers, approves sensitive
